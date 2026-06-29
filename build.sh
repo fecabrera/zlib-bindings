@@ -1,7 +1,6 @@
 #!/bin/bash
-MCCPATH=${MCCPATH:-~/Documents/mcc}
-MCC=${MCC:-"python -m mcc"}
-CC="cc"
+MCC=${MCC:-"mcc"}
+CC=${CC:-"cc"}
 
 run_echo() {
   echo "$@"
@@ -9,7 +8,7 @@ run_echo() {
 }
 
 compile() {
-  PYTHONPATH=$MCCPATH run_echo $MCC -I src -c $1 -o "${1%.mc}.o"
+  run_echo $MCC -I src -c $1 -o "${1%.mc}.o"
   run_echo CC -lz "${1%.mc}.o" -o ${1%.mc}
 }
 

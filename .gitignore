@@ -1,2 +1,6 @@
+// output
 *.o
 *.out
+
+// macOS
+.DS_Store
