@@ -1,3 +1,3 @@
 # zlib-bindings
 
-Zlib bindings for [**mc-lang**](https://github.com/fecabrera/mcc).
+Zlib bindings for [**mcc**](https://github.com/fecabrera/mcc).
