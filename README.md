@@ -10,23 +10,20 @@ Zlib bindings for [**mcc**](https://github.com/fecabrera/mcc).
 
 ## Quickstart
 
-Clone the repo:
-
 ```bash
 git clone https://github.com/fecabrera/zlib-bindings
 cd zlib-bindings
 ```
 
-If you want to, you can build a static library and the `.mci` interfaces:
+also, if you want to, you can build a static library and the `.mci` interfaces
 
 ```bash
 ./build.sh
 ```
 
-### Example
+create you `main.mc`:
 
 ```c
-// main.mc
 import "std";
 import "zlib";
 
@@ -38,21 +35,21 @@ fn main() -> int32 {
 }
 ```
 
-### Compile
+then compile and link against zlib
 
 ```bash
 mcc -c main.mc -I src/
 cc -lz main.o
 ```
 
-or using a pre-compiled static library and interface
+or using your pre-compiled static library and interface:
 
 ```bash
 mcc -c main.mc -I lib/libz
 cc -lz main.o lib/libz.a  # note that you still need to use -lz
 ```
 
-### Run
+and run your binary
 
 ```bash
 ./a.out
