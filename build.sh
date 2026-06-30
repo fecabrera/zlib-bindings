@@ -15,7 +15,7 @@ compile_example() {
 
 compile_lib() {
   run_echo $MCC -c $1 -o "${1%.mc}.o"
-  run_echo $AR -rc "build/$2.a"
+  run_echo $AR -rc "build/$2.a" "${1%.mc}.o"
 }
 
 mkdir -p build
