@@ -1,7 +1,11 @@
 // output
-build
+lib
 *.o
 *.out
+examples/*
+!examples/*.mc
+src/*
+!src/*.mc
 
 // macOS
 .DS_Store

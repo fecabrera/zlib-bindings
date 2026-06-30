@@ -10,16 +10,17 @@ run_echo() {
 
 compile_example() {
   run_echo $MCC -I src -c $1 -o "${1%.mc}.o"
-  run_echo $CC -lz "${1%.mc}.o" -o "build/${1%.mc}"
+  run_echo $CC -lz "${1%.mc}.o" -o ${1%.mc}
 }
 
 compile_lib() {
   run_echo $MCC -c $1 -o "${1%.mc}.o"
-  run_echo $AR -rc "build/$2.a" "${1%.mc}.o"
+  run_echo $MCC --emit-interface $1 -o "lib/libz/$(basename ${1%.mc}).mci"
+  run_echo $AR -rc "lib/$2.a" "${1%.mc}.o"
 }
 
-mkdir -p build
-mkdir -p build/examples
+mkdir -p lib
+mkdir -p lib/libz
 
 compile_lib src/zlib.mc libz
 
