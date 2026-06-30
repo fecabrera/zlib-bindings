@@ -9,8 +9,8 @@ run_echo() {
 }
 
 compile_example() {
-  run_echo $MCC -I src -c $1 -o "${1%.mc}.o"
-  run_echo $CC -lz "${1%.mc}.o" -o ${1%.mc}
+  run_echo $MCC -I lib/libz -c $1 -o "${1%.mc}.o"
+  run_echo $CC -lz lib/libz.a "${1%.mc}.o" -o ${1%.mc}
 }
 
 compile_lib() {
