@@ -1,6 +1,6 @@
 # zlib-bindings
 
-Zlib bindings for [**mcc**](https://github.com/fecabrera/mcc).
+[**zlib**](https://github.com/madler/zlib) bindings for [**mcc**](https://github.com/fecabrera/mcc)
 
 ## Requirements
 
@@ -9,6 +9,8 @@ Zlib bindings for [**mcc**](https://github.com/fecabrera/mcc).
 - `zlib`
 
 ## Quickstart
+
+clone the repo:
 
 ```bash
 git clone https://github.com/fecabrera/zlib-bindings
@@ -42,7 +44,7 @@ mcc -c main.mc -I src/
 cc -lz main.o
 ```
 
-or using your pre-compiled static library and interface:
+or using the static library and interfaces created before:
 
 ```bash
 mcc -c main.mc -I lib/libz
