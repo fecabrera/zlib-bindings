@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get mcc compiler
+        run: |
+          brew trust fecabrera/mcc
+          brew tap fecabrera/mcc
+          brew install mcc
+
+      - name: Build
+        run: |
+          chmod a+x ./build.sh
+          ./build.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: build
+          path: |
+            lib
+            examples
+            !examples/*.o
+            !examples/*.mc
